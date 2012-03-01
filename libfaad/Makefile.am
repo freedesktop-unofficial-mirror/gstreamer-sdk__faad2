@@ -7,6 +7,10 @@ include_HEADERS = $(top_srcdir)/include/faad.h \
 libfaad_la_LDFLAGS = -version-info 2:0:0
 libfaad_la_LIBADD = -lm
 
+if OS_WIN32
+libfaad_la_LDFLAGS += -no-undefined
+endif
+
 libfaad_la_SOURCES = bits.c cfft.c decoder.c drc.c \
 		     drm_dec.c error.c filtbank.c \
 		     ic_predict.c is.c lt_predict.c mdct.c mp4.c ms.c output.c pns.c \
